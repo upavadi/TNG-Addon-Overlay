@@ -1,0 +1,807 @@
+/* Below, Articles using histories-2025 ******************  */
+.contentBox3a {float: left; width: 31%; padding: 0; margin: 0 0 5px 0;}
+.contentBox3b {float: left; width: 31%; padding: 0; margin: 0 1% 5px 1%;}
+.contentBox3c {float: left; width: 31%; padding: 0; margin: 0 0 5px 0;}
+.sidebarLeft {float: left; width: 48%; padding: 0; margin: 0 1% 0 1%;}
+.contentRight {float: right; width: 45%; padding: 0; margin: 0 1% 0 1%;}
+/* End, Articles using histories-2025 ******************  */
+.article-title {
+	font-size: 2.0em;
+	font-weight: bold;
+	color: #d77600;
+	margin: auto;
+	padding-top: .6em;
+}
+
+.article-description {
+	font-weight: bold;
+	color: #333;
+	padding-top: .6em;
+	/**padding-bottom: 15px; **/
+}
+
+.article-text {
+	width: 90%;
+	font-size: 1.5em;
+	margin: auto;;
+	color: #333;	
+}
+
+/*** flex container ***********************************/
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* space between items */
+    justify-content: center; /* or center, flex-start, etc. */
+	margin: 0px 15px 20px 10px; /* top 0px. right 15px. bottom 0px. left 10px */
+}
+
+.flex-container > div {
+    flex: 1 1 250px; /* grow, shrink, basis */
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+.dv1 { order: 1; }
+.dv2 { order: 2; }
+.dv3 { order: 3; }
+.dv4 { order: 4; }
+.dv5 { order: 5; }
+.dv6 { order: 6; }
+.dv7 { order: 7; }
+.dv8 { order: 8; }
+.dv9 { order: 9; }
+.dv10 { order: 10; }
+.dv11 { order: 11; }
+.dv12 { order: 12; }
+.dv13 { order: 13; }
+.dv14 { order: 14; }
+.dv15{ order: 15; }
+/* body: describes page background color and all non-table text not governed by any other style */
+.templatebody {
+	/*	background: #EDEDED url(../img/border.gif) repeat-y; */
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+width:960px;
+margin: 0 auto;
+background-color:#fafaff
+	}
+
+/** pdf for articles *********/
+    .pdf {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .pdf,
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+	
+/* header: heading text */
+.header {
+	font-family:  "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 25px;
+	color: #d77600;
+	margin-top: 28px;
+}
+/* Sub header for home page: Sub heading text */
+.header2 {
+	font-family:  "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: #d77600;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+a.headerlink:link {
+	color: #CCCCCC;
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+/* font overrides */
+.normal {
+    font-family:  Arial, Helvetica, sans-serif;
+}
+
+.smfieldname {
+    font-family:  Arial, Helvetica, sans-serif;
+}
+
+.whiteheader {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+.subhead {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.pboxname {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.pboxdates {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.pboxpopup {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.whitesubhead {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.smaller {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+#loadingdiv {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+#sscontrols {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.smallest {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.subheadbold {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+.largeheader {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+/* link definitions */
+/* link: normal links, active: links in use */
+a:link, .plainheader {
+	color: #000000;
+	text-decoration: none;
+	
+}
+
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #D77600;
+	text-decoration: none;
+}
+
+a.lightlink:link,
+a.lightlink3:link {
+	color: #333;
+}
+
+a.lightlink3:link, a.lightlink3:visited, a.lightlink3:hover, a.lightlink3:active {
+	color: #333;
+}
+
+a.lightlink3:active {
+	color: #D77600;
+}
+
+a.lightlink:link, a.lightlink:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #D77600;
+}
+
+a.lightlink3:hover, a.lightlink3:active {
+	color: #D77600;
+}
+
+a.lightlink:hover, a.lightlink:active {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333;
+}
+
+a.lightlink2:link, a.lightlink2:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+/* fieldname: regular text within column or row title sections */
+.fieldname {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #005689;
+}
+
+/* fieldnameback: background color for column and row title sections */
+.fieldnameback {
+	background-color: #CACACA;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #EDEDED;
+	border-bottom-color: #EDEDED;
+}
+
+/* databack: background color for data areas */
+.databack {
+	background-color: #fff;
+}
+
+/* sideback: background color for side and top frames */
+.sideback {
+	background-color: #000;
+	/*background-image: url(../img/admin_bg.gif);*/
+}
+
+/* background color for admin menu items while active*/
+a.admincell:hover, a.leftlink:hover {
+	background-color: #C3B165;
+}
+
+#navcontainer {
+	width: 100px;
+}
+#navcontainer ul {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	margin-left: 3px;
+	padding-left: 0px;
+	list-style-type: none;
+	font-size: 10px;
+}
+#navcontainer a {
+	background-color: #FFFFFF;
+	display: block;
+	width: 100px;
+	padding: 3px;
+}
+.navtext {
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #3E331D;
+	padding-left: 7px;
+}
+
+#navcontainer a:link {
+	color: #3E331D;
+	text-decoration: none;
+}
+#navlist a:visited {
+	color: #3E331D;
+	text-decoration: none;
+}
+#navcontainer a:hover {
+	background-color: #F2E6CC;
+}
+
+.home_section {
+	width: 75%;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0px;
+	background: #fff;
+	vertical-align: top;
+}
+
+.latest_news, ./**top_surnames **/ {
+	width: 15%;
+	padding-left: 8px;
+	border: 1px solid silver;
+	padding-top: 10px;
+	background-color: #EDEDED;
+	vertical-align: top;
+	margin-bottom: 5px;
+	float: right;
+}
+
+.user_info {
+	padding-bottom: 20px;
+	vertical-align: center;
+}
+
+.contact_us {
+	margin-top: 15px;
+}
+
+.user_info  .header {
+	font-size: 2.3em;
+	/* font-weight: bold; */
+}
+/** see tnghome page.css
+.top_surnames li {
+ color: #005689;
+    padding: 3px;
+}
+	**/
+
+.home_table {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: collapse;
+}
+
+.indexphoto {
+    border: 10;
+border-color: black;
+
+}
+
+.indexphototable {
+   text-align: center;
+    padding-top: 12px;
+}
+
+.homenav_col {
+	text-align: left;
+	vertical-align: top;
+	width: 100px;
+	padding-top: 15px;
+	padding-left: 10px;
+	background-color: #EDEDED;
+	font-size: 13px;
+}
+
+#homenav, #homenav ul {
+	padding: 0;
+	margin: 0;
+	list-style: 
+		;
+}
+
+#homenav li {
+	background: #EDEDED;
+	color:#005689;
+	display:inline;
+	padding: 2px 15px 2px 15px;
+}
+
+#homenav li:hover {
+	background: #005689;
+	color: #EDEDED;
+}
+
+#homenav li:hover a {
+	color: #EDEDED;
+}
+
+
+#homenav a {
+	text-decoration: none;
+	color:#005689;
+	font-weight:bold;
+}
+
+#homenav a:hover {
+	color: #EDEDED;
+}
+
+#homenav a:visited {
+	color:#005689;
+}
+
+
+#mnav a {
+	font-size: 12px;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #005689;
+}
+
+#mnav li { /* all list items */
+	background: #EDEDED; /*same as "databack" background color */
+	border-bottom:0px solid #777;
+	border-right:0px solid #777;
+	border-top:0px solid #005689; /*same as "databack" background color */
+	border-left:0px solid #005689; /*same as "databack" background color */
+}
+
+
+#mnav li ul { /* second-level lists */
+	border-top: 1px solid #322721;
+	border-left: 1px solid #322721;
+	border-right: 1px solid #322721;
+	background: #EDEDED;
+	position: absolute;
+	width: 13em;  /*increased to 13 in 6.2.0*/
+	left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+}
+
+#mnav li ul li {
+	border: 0px;
+	width: 13em;  /*increased to 13 in 6.2.0*/
+	background: #EDEDED; /*inactive dropdown menu color*/
+	margin-right: 0px;
+	margin-top: 1px;
+	border-bottom: 1px solid #777;
+}
+
+#mnav li ul li a {
+	width: 13em;  /*increased to 13 in 6.2.0*/
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 12px;
+	text-decoration:none;
+}
+
+/* this sets the top menus when hovered */
+#mnav li:hover, #mnav li.sfhover { /* lists nested under hovered list items */
+	background-color: #EDEDED;
+	border-right:0px;
+	border-left:0px;
+	border-top:0px;
+}
+
+/* properties on the highlighted drop down box */
+#mnav li ul li:hover {
+	background-color: #695445;
+}
+
+#mnav li ul li:hover a {
+	text-decoration:underline;
+	color: white;
+}
+
+/* properties of the drop down lists */
+#mnav li:hover li, #mnav li.sfhover li { /* lists nested under hovered list items */
+	border-top:none;
+	border-left:none;
+	font-weight: normal;
+}
+
+/* ends up as the background of the drop down lists */
+#mnav li:hover ul, #mnav li.sfhover ul { /* lists nested under hovered list items */
+	left: auto;
+	background-color: #695445;
+}
+
+.page {
+	background-color : #fff;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+	padding-top:20px;
+	border-top: 1px solid silver; 
+  border-left: 1px solid silver;
+    border-right: 1px solid silver;
+	border-bottom: 1px solid silver;
+	   }
+
+/* header-title is defined to replace the hard-coded style in topmenu.php */
+.headerrow {
+	/*background: #EDEDED url(../img/titletop.jpg) no-repeat; */
+	font-family:  Arial, Helvetica, sans-serif;
+	background:none;
+/* override background class from myemplatestyle.css*/
+* change for V9 change box size for logo*/
+	vertical-align: top;
+	height: 0px;
+	padding-left: 0px;
+	width: 320px;
+}
+
+.menurow {
+	width: 100%;
+	height: 46px;
+	background: #EDEDED url(../img/header_bg_short.gif) repeat-x;
+}
+
+.menucol {
+	text-align: left;
+	vertical-align: top;
+	padding-left: 15px;
+}
+
+/* left and right borders */
+.mainborder {
+    width: 0px;
+   /* background: url(../img/border.gif) repeat-y; */
+}
+
+/* text in the header */
+.text_white {
+	color: #fff;
+}
+
+.text_tan {
+	color: #005689;
+}
+
+.text_grey {
+	color: #999;
+}
+
+.text_brown {
+	color: #005689;
+}
+
+.headertable {
+    border-collapse: collapse;
+	}
+
+.headertextrow {
+	vertical-align: top;
+	width: 100px
+}
+
+/* change for V9 subtitle below logo*/
+.headertextrow .text_grey {
+	margin: 7px 0;
+	margin-left: 2px;
+	display: block;
+	font-weight: normal;
+	color: #D77600;
+	font-family: Verdana, Arial;
+}
+.headertext {
+	font-size: 35px;
+	color:#005689;
+}
+
+.mainbg {
+	background: #fff;
+	/*background: #fff url(../img/bg.gif); */
+	padding: 10px;
+	margin: 0;
+}
+
+.homebg {
+	background-color: #fff;
+	padding: 0;
+	margin: 0;
+}
+
+.searchtext {
+	font-size: 11px;
+	color: #005689;
+	text-align: right;
+	vertical-align: middle;
+	padding-right: 5px;
+	
+}
+
+.subsearch {
+	background-color: #fff;
+	/*overide background colour */
+	color: #005689;
+}
+
+a.subsearch:link, a.subsearch:visited {
+	background-color: #fff;
+	color: #005689;
+	font-size: 10px;
+}
+a.subsearch:hover {
+	background-color: #EDEDED;
+	color: #005689;
+	font-size: 10px;
+	text-align: center;
+}
+
+a.footer:link, a.footer:visited {
+	color: #005689;
+}
+a.footer:hover {
+	color: #005689;
+}
+
+.logintext {
+	font-size: 12px;
+	color: #005689;
+	vertical-align: top;
+	text-align: right;
+
+	
+}
+
+a.logintext:link, a.logintext:visited {
+	color: #005689;
+}
+a.logintext:hover {
+	color: #005689;
+}
+
+/* footer added to replace <font size="1" color="#cccc99"> in footer */
+.footer {
+	font-size: 10px;
+	color: #cccc99;
+	text-align: center;
+}
+
+/* footer:link added to replace <font color="#E1B964"> in footer */
+a.footer:link {color: #005689;}
+a.footer:visited  {color: #005689;} 
+
+a.footer:hover {
+	color: #FFCC33;
+}
+
+.footerbold {
+	color: #FFCC33;
+	font-weight: bold;
+}
+
+/* additional classes added for strict validation  */
+
+.snlink {
+	background-color:#fff;
+	border-left:1px solid #fff;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #EDEDED;
+	border-right:1px solid #EDEDED;
+}
+
+a.snlink {
+	/*color: #EDEDED;*/
+	background-color:#fff;
+	border-left:1px solid #005689;
+	border-top:1px solid #005689;
+	border-bottom:1px solid #EDEDED;
+	border-right:1px solid #EDEDED;
+}
+
+a.snlink:hover, .snlinkact, .adminnav .snlinkact {
+	background-color:#000000;
+	color: #fff;
+	border-left:1px solid #005689;
+	border-top:1px solid #005689;
+	border-bottom:1px solid #EDEDED;
+	border-right:1px solid #EDEDED;
+}
+
+.LB_window {
+	background: #f9f5f0;
+	border: 2px solid #000000;
+	color:#000000;
+}
+
+.LB_closeAjaxWindow{
+	background-color:#EDEDED;
+}
+/* end of templatestyle.css for template 8 */
+
+.bar {
+	background-color:#EDEDED;
+}
+
+.fieldnamebacksave {
+	background-color:#EDEDED;
+}
+
+.databacksave {
+	background: #fff;
+}
+
+#subheader{
+width:100%;
+background-color:#EDEDED;
+ padding: 5px 0;
+}
+
+#footer{
+margin-top:10px;
+width:100%;
+height:25px;
+background-color:#CACACA;
+}
+
+#footer li{
+display:inline;
+padding: 2px 15px 2px 15px;
+
+}
+#footer a {
+color:#005689;
+font-weight: bold;
+}
+
+
+.admincol .admincell {
+	background-color: #000;
+
+/*your custom style goes in this file*/
+/*if you're overriding style blocks from genstyle.css, you only need to include the attributes you're overriding, not the whole block*/
+
+/* added for the Tooltip mod */
+#dhtmltooltip{
+position: absolute;
+width: 265px;
+border: 1px solid black;
+padding: 2px;
+background-color: lightyellow;
+visibility: hidden;
+text-align:center;
+z-index: 300;
+
+input[type="text"] {
+	border: 1px solid;
+}
+
+.headertext a {
+	text-decoration: none;
+}
+
+.headertext a:hover {
+	text-decoration: underline;
+}
+
+.headertext a:visited {
+	color: inherit;
+}
+
+.login {
+	margin-bottom: 5px;
+}
+
+.fieldnameback {
+	background-color: #EDEDED;
+}
+
+.fieldname {
+	color: #005689;
+}
+}
+/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+/* modified for v9 topmenu* to suppress Find menu*/
+
+div.innercontainer {
+    display:none;
+	height: 22px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+div.menucontainer {
+    margin-top:1px;
+    margin-bottom:1px;
+    padding:0px;
+}
+div.icons {
+    float: left;	
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 0 2px;
+    padding: 0.3em 0 0.2em 1px;
+
+
+}
+/*move share icon to left*/
+div.icons-rt {
+    float: left;
+	font-size: 11px;
+    font-weight: bold;
+    margin: 1px 0 0 2px;
+    padding: 2px 0 0 3px;
+}
+/*  making the welcome user at the top taller.  */
+div.login{height:20px;}
+
+/* override a also change color to black to match share*/
+//a:link, a:active, div.icons a {color:#000000 !important ;}
+
+#tng_main {
+	//overflow: auto;
+}
+
+#pathlist {
+	--bgr: #aaaacc; /* background color of the diagram ( and invisible box border) */
+	--bg1: #fff; /* background of person box on hover */
+	--bg2: #ddddee; /* background color for boxes */
+	--cl2: 5a5a5a; /* text inside box */
+	/* fonts used for textual descriptions and inside boxes */
+	--fontfam: "Trebuchet MS", Geneva, Arial, Helvetica, SunSans-Regular, sans-serif;
+	--fontnar: Arial, Helvetica, sans-serif;
+	--fonttit: Merriweather, serif;
+}

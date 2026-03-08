@@ -1,0 +1,385 @@
+
+/**Welcome text
+.color_col_1 {
+  background: #98c1d9;
+}
+.color_col_2 {
+  background: #3d5a80;
+}
+.color_col_3 {
+  background: #e0fbfc;
+}
+**/
+
+.welcomeText {
+	//float: left;
+	width: 100%;
+	//padding: 5px 5px 5px 5px;
+	border: 1px solid silver;
+	border-radius: 10px;
+	//padding-top: 10px;
+	background-color: #EDEDED;
+	vertical-align: top;
+	display: inline-block;
+	margin-bottom: 5px;
+		margin-top: 5px;
+}
+
+.welcomeText_gone {
+	width: 40em;
+	background-color: #e0fbfc;
+	/**margin-left: auto;
+	margin-right: auto; **/
+	border: 1px solid silver;
+	border-radius: 10px;
+	padding: 10px;
+	vertical-align: center;
+	margin-top: 10px;
+	box-shadow: 2px 4px #888888;
+	font-size: 1.2em;
+}
+.welcomeText_1 {
+	width: 40em;
+	background-color: #e0fbfc;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid silver;
+	border-radius: 10px;
+	padding: 10px;
+	vertical-align: center;
+	margin-top: 10px;
+	box-shadow: 2px 4px #888888;
+	font-size: 1.2em;
+}
+.welcomeText_2 {
+	width: 95%;
+	background-color: #e0fbfc;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid silver;
+	border-radius: 10px;
+	padding: 10px;
+	vertical-align: center;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	box-shadow: 2px 4px #888888;	
+}
+.welcomeText_3 {
+	width: 95%;
+	background-color: #e0fbfc;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid silver;
+	border-radius: 10px;
+	padding: 10px;
+	vertical-align: center;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	box-shadow: 2px 4px #888888;	
+}
+/************************/
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  flex: 33.33%;
+ }
+/*************/
+.random-photo {
+	text-align: center;
+	display: inline-block;
+	margin-top: 10px;
+	/**margin-left: 5px; **/
+	background-color: #e0fbfc;
+	border: 1px solid silver;
+	border-radius: 10px; /**
+	box-shadow: 2px 4px #888888; **/	
+	
+}
+.random_img1 {
+	height: 270px;
+	margin: 10px;
+	box-shadow: 2px 4px #888888;
+	
+}
+/****************/
+.surname_header {
+	font-family:  "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 25px;
+	color: #d77600;
+}
+.top_surnames {
+	background-color: #e0fbfc;
+	height: auto;
+	padding: 10px 5px 5px 5px;
+	border-radius: 10px;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 0px;
+	display: inline-block;
+	width: auto;
+	font-size: 1.2em;
+	text-align: left;
+	border: 1px solid silver;
+	box-shadow: 2px 4px #888888;
+	/**display: block; **/
+}
+/****************/
+.top_surnames_table {
+	font-size: 14px;
+	width: auto;
+}
+
+/*********/
+.article-table {
+	border: 1px solid silver !important;
+	border-radius: 10px;
+	background-color: #e0fbfc;
+	box-shadow: 2px 4px #888888;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding: 5px;
+	width: auto;	
+}
+.article-col {
+	border: 1px solid silver !important;
+	padding: 5px;
+}
+
+/***********/
+.born-article-table {
+	border: 1px solid silver !important;
+	background-color: #e0fbfc;
+	/**margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	padding: 5px; **/
+	width: 100%;
+	font-size: .85em;
+	text-align: center;
+	
+}
+.born-highlight {
+    background-color: #E0E0F7;
+}
+
+.marr-highlight {
+    background-color: #1695e4;
+}
+
+.death-highlight {
+    background-color: #ADD8E6;
+}
+
+.article_header {
+	font-family:  "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: #d77600;
+	margin-top: 28px;
+}
+
+
+/***	
+.top_surnames {
+   	width: 48%;
+	border: 3px solid grey;
+	border-radius: 10px;
+	padding-top: 10px;
+	background-color: #EDEDED;
+	vertical-align: top;
+	display: inline-block;
+	margin-bottom: 15px;
+	margin: 1%;
+	text-align: right;
+	box-shadow: 2px 4px #888888;
+}
+	**/
+.equalHMR {
+	width: 250px;
+	margin-bottom: 2%;
+	margin-left: 5px;
+	text-align: right;
+}
+.eq {
+	padding-right: 10px;
+}
+.eqWrap {
+	display: flex;
+}
+
+.equalHMRWrap {
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.eq-female {
+	background: lightblue;
+}
+
+.surname_image {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 15px;
+	margin-left: 5px;
+	margin-bottom: 15px;
+}
+/************************/
+.gone_div {
+	width: auto; 
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	border: 1px solid silver;
+	box-shadow: 2px 4px #888888;
+	background: #e0fbfc;
+	padding: 5px;
+	border-radius: 10px;
+}
+.gone_header {
+	color:#D77600; 
+	font-size:14pt;
+	font-weight: bold;
+}
+.gone_text {
+	font-size:12pt;
+}
+
+.ancestry_chart {
+	width: 95%;
+	background-color: #e0fbfc;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid silver;
+	border-radius: 10px;
+	padding: 10px;
+	vertical-align: center;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	box-shadow: 2px 4px #888888;	
+}
+.ancestry_header {
+	color:#D77600; 
+	font-size:14pt;
+	margin: 5px;
+	font-weight: bold;
+}
+.ancestry_image {
+	width: 95%;
+	padding: 10px;
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+/*** show Logo on Mobile only **************/
+.Logo-for-mobile{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mobile-top-title {
+  margin-top: 0;
+  font-size: 1.18em;
+  color: #00588C;
+}
+
+.mobile-top-description {
+  margin: 5px 0 0;
+  font-size: 1.34em;
+  color: #0786D0;
+}
+
+
+
+/****Media queries ***************/
+@media screen and (max-width: 469px) {
+/* For mobile phones: single div full width */
+.Logo-for-mobile{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+}
+.columns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.welcomeText_1, .welcomeText_2, .welcomeText_3, welcomeText_gone {
+	width:85%;
+	margin-left: .5em;
+	margin-right: auto;
+	font-size: 0.9em;
+}
+.gone_div {
+	width: 98%;
+	margin: auto;
+}
+.born-article-table {
+	margin-left: 0px;
+	width: 98%;
+}
+.equalHMR {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.top_surnames {
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 1.2em;;
+	display: block;
+}
+.random-photo {
+	width: 40em;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-right: 10px;
+
+}
+
+@media (min-width: 470px) and (max-width : 1560px) {
+.equalHMR {
+	width: 95%;
+		margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+}
+.top_surnames {
+	
+	height: 335px;
+	width: 66%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	font-size: 1.2em;
+}
+
+.gone_div {
+  width: auto;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid silver;
+  box-shadow: 2px 4px #888888;
+  background: #e0fbfc;
+  padding: 5px;
+  border-radius: 10px;
+}

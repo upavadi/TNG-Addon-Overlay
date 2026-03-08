@@ -2,7 +2,13 @@
 
 !.gitignore
 !index.php
+
+# Allow these directories and all their contents
 !css/
+!css/**
 !add_ons/
+!add_ons/**
 !articles/
+!articles/**
 !histories/
+!histories/**

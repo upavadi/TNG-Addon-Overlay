@@ -1,0 +1,260 @@
+{
+    "items": [
+        {
+            "name": "Home",
+            "url": "#",
+            "visAll": 1,
+            "visAdmin": 1,
+            "visLoggedIn": 1,
+            "subitems": [
+                 {
+                    "name": "Home",
+                    "url": "\/index.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 1
+                },
+                {
+                    "name": "Register For New Account",
+                    "url": "\/newacctform.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Logout",
+                    "url": "\/logout.php",
+                    "visAll": 0,
+                    "visAdmin": 0,
+                    "visLoggedIn": 1
+                },
+                {
+                    "name": "log In",
+                    "url": "\/login.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                
+                {
+                    "name": "Articles",
+                    "url": "\/articles/articles-list.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Anniversaries",
+                    "url": "\/anniversaries.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                }
+            ]
+        },
+        {
+            "name": "Search (Find)",
+            "url": "#",
+            "visAll": 1,
+            "subitems": [
+                {
+                    "name": "Surnames",
+                    "url": "\/surnames.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "First Names",
+                    "url": "\/firstnames.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "People",
+                    "url": "\/searchform.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Families",
+                    "url": "\/famsearchform.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Calendar",
+                    "url": "\/calendar.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Subitem2_6",
+                    "url": "#6",
+                    "visAll": 0,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                }
+            ],
+            "visAdmin": 0,
+            "visLoggedIn": 0
+        },
+        {
+            "name": "Photos & Media",
+            "url": "#3",
+            "visAll": 1,
+            "subitems": [
+                {
+                    "name": "Photos",
+                    "url": "\/browsemedia.php?mediatypeID=photos",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Documents",
+                    "url": "\/browsemedia.php?mediatypeID=documents",
+                    "visAll": 0,
+                    "visAdmin": 1,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Histories",
+                    "url": "\/browsemedia.php?mediatypeID=histories",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Videos",
+                    "url": "/browsemedia.php?mediatypeID=videos",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Albums",
+                    "url": "\/browsealbums.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "All Media ?",
+                    "url": "\/browsemedia.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                }
+            ],
+            "visAdmin": 0,
+            "visLoggedIn": 0
+        },
+        {
+            "name": "Genealogy",
+            "url": "#4",
+            "visAll": 1,
+            "subitems": [
+                {
+                    "name": "What's New",
+                    "url": "\/whatsnew.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Statistics",
+                    "url": "/statistics.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Birthdays - Anniversaries",
+                    "url": "\/anniversaries.php",
+                    "visAll": 0,
+                    "visAdmin": 1,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Contact Us",
+                    "url": "\/suggest.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Access Log",
+                    "url": "\/showlog.php",
+                    "visAll": 0,
+                    "visAdmin": 0,
+                    "visLoggedIn": 1
+                },
+                {
+                    "name": "Subitem4_6",
+                    "url": "#4\/subitem6",
+                    "visAll": 0,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                }
+            ],
+            "visAdmin": 0,
+            "visLoggedIn": 0
+        },
+        {
+            "name": "Admin",
+            "url": "#",
+            "visAdmin": 1,
+            "subitems": [
+                {
+                    "name": "Admin",
+                    "url": "\/admin.php",
+                    "visAll": 1,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Update Menu",
+                    "url": "\/add_ons\/custom-menu\/manageMenuItems.php",
+                    "visAdmin": 1,
+                    "visAll": 0,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "FGW Set up",
+                    "url": "\/fgw_setup.php",
+                    "visAll": 0,
+                    "visAdmin": 1,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Upload Media",
+                    "url": "\/admin_mediaupload.php",
+                    "visAll": 0,
+                    "visAdmin": 1,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Root",
+                    "url": "..\/",
+                    "visAll": 0,
+                    "visAdmin": 1,
+                    "visLoggedIn": 0
+                },
+                {
+                    "name": "Subitem5_6",
+                    "url": "\/search.php",
+                    "visAll": 0,
+                    "visAdmin": 0,
+                    "visLoggedIn": 0
+                }
+            ],
+            "visAll": 0,
+            "visLoggedIn": 0
+        }
+    ]
+}

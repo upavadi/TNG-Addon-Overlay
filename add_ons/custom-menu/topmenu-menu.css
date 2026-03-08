@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.inner {
+    position: absolute;
+}
+
+.topHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.topLogo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns content to the right */
+}
+
+.topLogo {
+    height: 80px; /* Adjust logo size as needed */
+    width: auto;
+    margin-bottom: 5px;
+    margin-top: -15px;
+    align-items: flex-end; /* Aligns content to the right */
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Aligns content to the right */
+    margin-right: 20px;
+    font-size: 8;
+}
+
+.search-section input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: #ffff;
+}
+
+.loginLinks {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.loginLinks a {
+    text-decoration: none;
+    color: #00; /* Link color */
+}
+
+.loginLinks a:hover {
+    color: #007BFF; /* Link color */
+}
+
+.top-text-content {
+    text-align: right;
+}
+
+.topTitle {
+    margin-top: 0;
+    font-size: .89em;
+    color: #00588C; /* Dark text color */
+}
+
+.topDescription {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #0786D0; /* Lighter text color for description */
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #446d87;
+    padding: 2px 20px;
+    position: relative;
+}
+
+.menu-item {
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+    flex: 1;
+    text-align: left; /* Left-align headers */
+    min-width: 120px;
+    text-transform: uppercase;
+}
+
+.menu-item:hover,
+.menu-item:visited {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+    
+}
+
+
+.menu-item>a {
+    color: #ffffff !important; /** to maintain item colour */
+    text-decoration: none;
+}
+
+.menu-item:hover>a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Aligns below header */
+    left: 0;
+    width: 100%; /* Matches the header width */
+    background-color: #446d87;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submenu-item {
+    text-align: left; /* Left-align subheaders */
+}
+
+.submenu-item a {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.submenu-item a,
+.submenu-item a:visited {
+    color: white !important; /* Corrected color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.submenu-item:hover a {
+    color: black !important;
+}
+
+.submenu-item:hover {
+    background-color: #d7e4ed;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-wrap: wrap;
+    }
+    .menu-item {
+        flex: 1 1 50%;
+        text-align: left; /* Left-align headers for medium screens */
+    }
+    .submenu {
+        position: relative; /* Makes submenu inline on small screens */
+        top: 0;
+        width: 100%;
+        display: none; /* Hide submenu by default */
+    }
+    .menu-item:focus-within .submenu, 
+    .menu-item:hover .submenu {
+        display: block; /* Show submenu on hover or focus */
+    }
+}
+/** ADD sub sub itm **/
+/* --- Add this after your existing .submenu-item styles --- */
+.submenu-item {
+    position: relative; /* Needed for nested submenu positioning */
+}
+
+/* Style for sub-submenus (third level) */
+.submenu .submenu {
+    top: 0;
+    left: 100%;
+    position: absolute;
+    min-width: 180px;
+    background-color: #446d87;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1100;
+}
+
+/* Show sub-submenu on hover */
+.submenu-item:hover > .submenu,
+.submenu-item:focus-within > .submenu {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .menu {
+        flex-direction: column;
+    }
+    .menu-item {
+        flex: none;
+        text-align: left; /* Left-align headers for small screens */
+    }
+    .submenu {
+        position: relative;
+        display: none;
+    }
+    .menu-item:focus-within .submenu, 
+    .menu-item:hover .submenu {
+        display: block;
+    }
+}
+
+
+  

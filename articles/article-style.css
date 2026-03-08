@@ -1,0 +1,47 @@
+/*Your template style goes in this file*/
+/*If you decide to use a template, this file will be overwritten. If you're not using a template, you can leave this file blank*/
+/*All custom style should go in mytngstyle.css*/
+
+================== IMAGE CODING ================= */
+	<br>.img-curved {border-radius: 10px; margin: 4px 10px; border: 1px #444 solid; box-shadow: 0 10px 15px -9px rgba(0, 0, 0, 0.5);}<br>
+	.img-curved-right {border-radius: 10px; margin: 5px 0 10px 18px; float: right; border: 1px #444 solid; box-shadow: 0 10px 15px -9px rgba(0, 0, 0, 0.5);}<br>
+	.img-curved-left {border-radius: 10px; margin: 5px 18px 10px 0; float: left; border: 1px #444 solid; box-shadow: 0 10px 15px -9px rgba(0, 0, 0, 0.5);}<br><br>
+	.img-left {margin: 10px 10px 10px 0; float: left;}<br>
+	.img-right{margin: 10px 0 10px 10px; float: right;}<br><br>
+	.img-frame {background: #ffffff; border: 1px #aaa solid; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); padding: 3px; margin: 12px; }<br><br>
+	.img-round2 {border-radius: 50%; border: 2px #fff solid; box-shadow: 0 10px 15px -9px rgba(0, 0, 0, 0.7);}<br><br>.img-shadow {margin: 5px 10px; border:1px solid 
+		#777; box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3)}<br>
+	</p>
+	<p><br><br>/* 
+	================== CONTENT BOX CODING ================= */<br>.contentBox3a 
+	{float: left; width: 31%; padding: 0; margin: 0 0 5px 0;}<br>
+	.contentBox3b {float: left; width: 31%; padding: 0; margin: 0 1% 5px 1%;}<br>
+	.contentBox3c {float: left; width: 31%; padding: 0; margin: 0 	0 5px 0;}<br>
+	.sidebarLeft {float: left; width: 31%; padding: 0; margin: 0 1% 0 1%;}<br>
+	.contentRight {float: right; width: 64%; padding: 0; margin: 0 1% 0 1%;}<br><br>
+	
+	/* ================== MEDIA QUERIES 	================= */<br>
+	@media screen and (max-width: 320px) {<br>
+	.contentBox3a, .contentBox3b, .contentBox3c, .sidebarLeft, .contentRight 
+	{width: 98%; margin: 0 1% 20px 1%; padding: 0; float: none;}<br><br>
+	
+	@media screen and (min-width: 321px) and (max-width: 480px) {<br>
+	.contentBox3a, .contentBox3b, .contentBox3c, .sidebarLeft, .contentRight {width: 98%; padding: 0; margin: 0 auto 20px auto; float: none; max-width: 450px;}<br><br>
+	
+	@media screen and (min-width: 481px) and (max-width: 623px) {<br>
+	.contentBox3a, .contentBox3b, .contentBox3c, .sidebarLeft, .contentRight {width: 98%; padding: 0; margin: 20px auto; float: none; max-width: 450px;}<br><br>
+	
+	@media screen and (min-width: 624px) and (max-width: 669px) {<br>	
+	.contentBox3a, .contentBox3b, .contentBox3c {width: 450px; padding: 0; margin: 0 auto 20px auto; float: none;}<br>
+	.sidebarLeft {width: 450px; padding: 0; margin: 0 auto 20px auto; float: none;}<br>.contentRight {width:98%; margin: 1%; padding: 0;}<br><br>
+	
+	@media screen and (min-width: 670px)and (max-width: 768px) {<br>
+	.contentBox3a, .contentBox3b, .contentBox3c {width: 450px; padding: 0; margin: 0 auto 20px auto; float: none;}<br>
+	.sidebarLeft {width: 450px; padding: 0; margin: 0 auto 20px auto; float: none;}<br>
+	.contentRight {width: 98%; margin: 1%; padding: 0;}<br><br>
+	
+	@media screen and (min-width: 769px) and (max-width: 800px) {<br>
+	.contentBox3a, .contentBox3b, .contentBox3c {width: 450px; padding: 0; margin: 0 auto 20px auto; float: none;}<br>.sidebarLeft {width: 450px; padding: 0; 
+		margin: 0 auto 20px auto; float: none;}<br>.contentRight {width: 98%; margin: 1%; padding: 0;}</p>
+		
+	<h1>Styling</h1>
