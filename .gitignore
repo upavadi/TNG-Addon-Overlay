@@ -1,9 +1,11 @@
+# By default ignore everything
 *
 
+# Whitelist specific files
 !.gitignore
 !index.php
 
-# Allow these directories and all their contents
+# Whitelist these directories and all their contents
 !css/
 !css/**
 !add_ons/
