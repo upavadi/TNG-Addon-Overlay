@@ -143,7 +143,7 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 		echo "<li><a href=\"anniversaries.php\">Anniversaries</a></li>\n";
 		echo "<li><a href=\"add_ons/search-names.php\">Quick Search</a></li>\n";
 		//echo "<li><a href=\"add_ons/events-pending.php\">Any Other Special Event?</a></li>\n";
-		echo "<li><a href=\"add_ons/y_today_t.php\">Yesterday - Today - Tomorrow</a></li>\n"; 
+		echo "<li><a href=\"add_ons/y_today_3.php\">Yesterday - Today - Tomorrow</a></li>\n"; 
 		echo "<li><a href=\"statistics.php\">{$text['mnustatistics']}</a></li>\n";
 		echo "<li><a href=\"suggest.php\">Contact Us</a></li>\n";
 		?>
