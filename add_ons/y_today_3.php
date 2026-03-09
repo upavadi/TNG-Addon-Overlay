@@ -1,5 +1,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
 
 <?php
 $cms['tngpath'] = "../";
@@ -91,9 +90,9 @@ FROM   {$families_table} as f
 # WHERE  Month(f.marrdatetr) = MONTH(ADDDATE(now(), INTERVAL 3 month))
   WHERE  DATE(CONCAT(YEAR(CURDATE()), RIGHT(f.marrdatetr, 6)))
           BETWEEN 
-              DATE_SUB(CURDATE(), INTERVAL 1 DAY)
+              DATE_SUB(CURDATE(), INTERVAL 3 DAY)
           AND
-              DATE_ADD(CURDATE(), INTERVAL 1 DAY)     
+              DATE_ADD(CURDATE(), INTERVAL 3 DAY)     
 ORDER  BY Day(f.marrdatetr)
 ";
 $result3 = $db3->query($sql3);
@@ -106,12 +105,12 @@ $result3 = $db3->query($sql3);
 $NewArray = array_merge($rows, $rows3); // combined Array to include marr anni
 //var_dump($NewArray);
 ?>
-
+<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
 <p>
 <div class="article-text">
 	<h1 class="article-title">yesterday TODAY tomorrow</h1>
 </p>
-<p>Under construction<br>
+<p><b>Under construction</b><br>
 <p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br>LogIn required to view all data.
 </p>
 
