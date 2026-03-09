@@ -1,4 +1,4 @@
- <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
 
 <?php
@@ -111,9 +111,8 @@ $NewArray = array_merge($rows, $rows3); // combined Array to include marr anni
 <div class="article-text">
 	<h1 class="article-title">yesterday TODAY tomorrow</h1>
 </p>
-<p>
-<b>Under construction</b>
-<p>LogIn required to view all data</p>
+<p>Under construction<br>
+<p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br>LogIn required to view all data.
 </p>
 
 
