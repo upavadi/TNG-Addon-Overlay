@@ -38,9 +38,9 @@ $sql = "SELECT
 	
 	WHERE
 	   ( DATE_FORMAT(birthdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
+			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 10 DAY), '%m-%d'), 
 			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
+			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 10 DAY), '%m-%d')
 			)
 )
 	OR
@@ -90,9 +90,9 @@ FROM   {$families_table} as f
 # WHERE  Month(f.marrdatetr) = MONTH(ADDDATE(now(), INTERVAL 3 month))
   WHERE  DATE(CONCAT(YEAR(CURDATE()), RIGHT(f.marrdatetr, 6)))
           BETWEEN 
-              DATE_SUB(CURDATE(), INTERVAL 3 DAY)
+              DATE_SUB(CURDATE(), INTERVAL 1 DAY)
           AND
-              DATE_ADD(CURDATE(), INTERVAL 3 DAY)     
+              DATE_ADD(CURDATE(), INTERVAL 1 DAY)     
 ORDER  BY Day(f.marrdatetr)
 ";
 $result3 = $db3->query($sql3);
@@ -229,6 +229,7 @@ where personID IN {$personList} AND m.defphoto = 1";
   If ($currentmonth == $birthmonth) {
 		$event = "BIRTH";
 		$bornClass = 'born-highlight';
+		$eventClass = $bornClass;
 		$eventname = $birthevent['birthdate'];
 		$eventBirthday = $birthevent['birthdate'];
 		$eventDeathday = $birthevent['deathdate'];
@@ -236,10 +237,13 @@ where personID IN {$personList} AND m.defphoto = 1";
 		$eventDeathYears = $birthevent['DeathAge']; 
 	} else  {
 		$bornClass = "";
+		//$eventClass = "";	
 	}
 
 	If ($currentmonth == $deathmonth) {
 		$deathClass = 'death-highlight';
+		$eventClass = $deathClass;
+		//$eventYears = "";
 		$event = "DEATH";
 		$eventBirthday = $birthevent['birthdate'];
 		$eventDeathday = $birthevent['deathdate'];
@@ -247,16 +251,22 @@ where personID IN {$personList} AND m.defphoto = 1";
 		$eventDeathYears = $birthevent['DeathAge'];
 	} else  {
 		$deathClass = "";
+		//$eventClass = "";
 	}
 
 	If ($currentmonth == $marrmonth) {
 		$marrClass = 'marr-highlight';
+		$eventClass = $marrClass;
+		$eventMarrday = "";
         $event = "MARRIAGE";
 		$eventMarrday = $birthevent['marrdate'];	
+		$eventYears = $birthevent['MarrYears'];	
 	} else  {
 		$marrClass = "";
+		//$eventClass = "";
+		//$eventYears = "";
 	}
-	
+
 
 ?>
 
@@ -276,7 +286,7 @@ where personID IN {$personList} AND m.defphoto = 1";
 			<?php endforeach; ?>
 			</td>
         <!--event -->    
-			<td class="born-article-table" ><?php echo $event; ?>
+			<td class="born-article-table <?php echo $eventClass; ?>" ><?php echo $event; ?>
 			</td>
         <!--Birth date--->
 			<td class="born-article-table <?php echo $bornClass; ?>" style="text-align: center;"><?php echo $eventBirthday; ?>
@@ -285,7 +295,7 @@ where personID IN {$personList} AND m.defphoto = 1";
 			<td class="born-article-table <?php echo $marrClass; ?>" style="text-align: center;"><?php echo $eventMarrday; ?>
 	   		</td>
 		<!---- Years ------->	
-		<td class="born-article-table" style="text-align: center;"><?php echo $eventYears; ?>
+		<td class="born-article-table " style="text-align: center;"><?php echo $eventYears; ?>
 		</td>
 		<!---Death Date -------->
         <td class="born-article-table <?php echo $deathClass; ?>" style="text-align: center;"><?php echo $eventDeathday; ?>
@@ -305,9 +315,9 @@ endforeach;
 </table>
 
 <div
-<p class="center"><a class="btn-detail" href="../articles/articles-list.php">Back to Articles Index</a></p>
+<p class="center"><a class="btn-detail" href="../index.php">Back to Home Page</a></p>
 
 
 <?php
-
+tng_footer( "" );
 ?>

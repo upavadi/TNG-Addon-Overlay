@@ -1,7 +1,7 @@
 <html>
 <style>
     .mhead li a {
-        height: 14px;>
+        height: 16px !important;
 </style>
 <?php
 /** Add menu items to Mobile 'hamburger' view

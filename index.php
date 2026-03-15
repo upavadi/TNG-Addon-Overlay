@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 include("tng_begin.php"); 
 
@@ -73,8 +73,11 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngstyle.css' ; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain; ?>/add_ons/custom-menu/topmenu-menu.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngmobile.css' ; ?>">
 
-</head><link rel="stylesheet" href="<?php echo $tngdomain; ?>/add_ons/custom-menu/topmenu-menu.css">
+</head>
+
 <li nk rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/tngmobile.css' ; ?>">
 
 <!-- "Home Page" (the text for these messages can be found at near the bottom of text.php -->
