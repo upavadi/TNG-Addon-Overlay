@@ -45,9 +45,9 @@ $sql = "SELECT
 )
 	OR
 	( DATE_FORMAT(deathdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
+			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 10 DAY), '%m-%d'), 
 			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
+			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 10 DAY), '%m-%d')
 			)
 ) 
 	";
@@ -90,9 +90,9 @@ FROM   {$families_table} as f
 # WHERE  Month(f.marrdatetr) = MONTH(ADDDATE(now(), INTERVAL 3 month))
   WHERE  DATE(CONCAT(YEAR(CURDATE()), RIGHT(f.marrdatetr, 6)))
           BETWEEN 
-              DATE_SUB(CURDATE(), INTERVAL 1 DAY)
+              DATE_SUB(CURDATE(), INTERVAL 10 DAY)
           AND
-              DATE_ADD(CURDATE(), INTERVAL 1 DAY)     
+              DATE_ADD(CURDATE(), INTERVAL 10 DAY)     
 ORDER  BY Day(f.marrdatetr)
 ";
 $result3 = $db3->query($sql3);
@@ -110,7 +110,10 @@ $NewArray = array_merge($rows, $rows3); // combined Array to include marr anni
 <div class="article-text">
 	<h1 class="article-title">yesterday TODAY tomorrow</h1>
 </p>
-<p><b>Under construction</b><br>
+<div style="background-color: #5a5ab8; color: white; display: inline-block; padding: 10px;">
+<b>Under construction<br><i>
+To help us evaluate this software I have put the date range to be 10 days before & 10 Days after, Today.</i></b>
+</div>
 <p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br>LogIn required to view all data.
 </p>
 
