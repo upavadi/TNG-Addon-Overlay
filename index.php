@@ -75,10 +75,10 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngstyle.css' ; ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain; ?>/add_ons/custom-menu/topmenu-menu.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngmobile.css' ; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/tngmobile.css' ; ?>">
 
 </head>
 
-<li nk rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/tngmobile.css' ; ?>">
 
 <!-- "Home Page" (the text for these messages can be found at near the bottom of text.php -->
 <div style="padding: 5px; width: 50%;  margin: 0 auto; text-align: center;";>
