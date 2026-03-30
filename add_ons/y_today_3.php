@@ -38,16 +38,16 @@ $sql = "SELECT
 	
 	WHERE
 	   ( DATE_FORMAT(birthdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 10 DAY), '%m-%d'), 
+			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
 			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 10 DAY), '%m-%d')
+			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
 			)
 )
 	OR
 	( DATE_FORMAT(deathdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 10 DAY), '%m-%d'), 
+			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
 			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 10 DAY), '%m-%d')
+			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
 			)
 ) 
 	";
@@ -81,7 +81,7 @@ h.personid AS personid1,
        f.marrplace,
        f.private,
        f.divdate,
-       Year(Now()) - Year(marrdatetr) AS MarrYears
+       Year(Now()) - Year(f.marrdatetr) AS MarrYears
 FROM   {$families_table} as f
     LEFT JOIN {$people_table} AS h
               ON f.husband = h.personid
@@ -105,20 +105,24 @@ $result3 = $db3->query($sql3);
 $NewArray = array_merge($rows, $rows3); // combined Array to include marr anni
 //var_dump($NewArray);
 ?>
+
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
+
 <p>
 <div class="article-text">
 	<h1 class="article-title">yesterday TODAY tomorrow</h1>
 </p>
-<div style="background-color: #5a5ab8; color: white; display: inline-block; padding: 10px;">
+<div class="info-bar">
 <b>Under construction<br><i>
-To help us evaluate this software I have put the date range to be 10 days before & 10 Days after, Today.</i></b>
+To help us evaluate this software I have increased the date range to 10 days before & 10 Days after, Today.</i></b>
 </div>
-<p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br>LogIn required to view all data.
+<p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br><b>
+<?php 
+if (!$currentuser) 		
+
+echo "<a class='btn-detail' href='../login.php'>Log In </a>required to view all data.";
+?>
 </p>
-
-
-
 <table class="born-article-table" >
     
     <th class="born-article-table " style="width: 100px; background-color: #EDEDED; text-align: center;"></th>    
@@ -214,60 +218,70 @@ where personID IN {$personList} AND m.defphoto = 1";
 			}
 	}
 
-		if ($birthevent['birthdate'] == "")
-			{
+		if ($birthevent['birthdate'] == "") {
 			$birthevent['DeathAge'] = "";
 			$birthevent['BirthAge'] = "";
-			}
+		}
 		if ($birthevent['deathdate'] == "") {
-		$birthevent['DeathYears'] = "";
-		$birthevent['DeathAge'] = "";
-	}
+			$birthevent['DeathYears'] = "";
+			$birthevent['DeathAge'] = "";
+		}
 
-	$birthmonth = substr($birthevent['birthdatetr'], -5, 2);
-	$deathmonth = substr($birthevent['deathdatetr'], -5, 2);
-	$marrmonth = substr($birthevent['marrdatetr'], -5, 2);
-	$currentmonth = date("m");
+		$yesterdayMd = date('m-d', strtotime('-1 day'));
+		$todayMd = date('m-d');
+		$tomorrowMd = date('m-d', strtotime('+1 day'));
+		$birthMd = substr($birthevent['birthdatetr'], -5);
+		$deathMd = substr($birthevent['deathdatetr'], -5);
+		$marrDateOrig = $birthevent['marrdatetr'];
+		$marrDate = $marrDateOrig ? date('Y') . '-' . substr($marrDateOrig, 5) : '';
+		$marrTimestamp = $marrDate ? strtotime($marrDate) : false;
+		$marrStart = strtotime('-10 days');
+		$marrEnd = strtotime('+10 days');
 
-  If ($currentmonth == $birthmonth) {
-		$event = "BIRTH";
-		$bornClass = 'born-highlight';
-		$eventClass = $bornClass;
-		$eventname = $birthevent['birthdate'];
-		$eventBirthday = $birthevent['birthdate'];
-		$eventDeathday = $birthevent['deathdate'];
-		$eventYears = $birthevent['BirthAge'];
-		$eventDeathYears = $birthevent['DeathAge']; 
-	} else  {
+		$birthIsSelected = $birthMd && in_array($birthMd, [$yesterdayMd, $todayMd, $tomorrowMd]);
+		$deathIsSelected = $deathMd && in_array($deathMd, [$yesterdayMd, $todayMd, $tomorrowMd]);
+		$marrIsSelected = $marrTimestamp !== false && $marrTimestamp >= $marrStart && $marrTimestamp <= $marrEnd;
+
+		$event = "";
+		$eventClass = "";
 		$bornClass = "";
-		//$eventClass = "";	
-	}
-
-	If ($currentmonth == $deathmonth) {
-		$deathClass = 'death-highlight';
-		$eventClass = $deathClass;
-		//$eventYears = "";
-		$event = "DEATH";
-		$eventBirthday = $birthevent['birthdate'];
-		$eventDeathday = $birthevent['deathdate'];
-		$eventYears = $birthevent['BirthAge'];
-		$eventDeathYears = $birthevent['DeathAge'];
-	} else  {
 		$deathClass = "";
-		//$eventClass = "";
-	}
-
-	If ($currentmonth == $marrmonth) {
-		$marrClass = 'marr-highlight';
-		$eventClass = $marrClass;
-		$eventMarrday = "";
-        $event = "MARRIAGE";
-		$eventMarrday = $birthevent['marrdate'];	
-		$eventYears = $birthevent['MarrYears'];	
-	} else  {
 		$marrClass = "";
-		//$eventClass = "";
-		//$eventYears = "";
+		$eventBirthday = "";
+		$eventDeathday = "";
+		$eventMarrday = "";
+		$eventYears = "";
+		$eventDeathYears = "";
+
+		if ($birthIsSelected) {
+			$event = "BIRTH";
+			$bornClass = 'born-highlight';
+			$eventClass = $bornClass;
+			$eventBirthday = $birthevent['birthdate'];
+			$eventDeathday = $birthevent['deathdate'];
+			$eventYears = $birthevent['BirthAge'];
+			$eventDeathYears = $birthevent['DeathAge'];
+		} elseif ($deathIsSelected) {
+			$event = "DEATH";
+			$deathClass = 'death-highlight';
+			$eventClass = $deathClass;
+			$eventBirthday = $birthevent['birthdate'];
+			$eventDeathday = $birthevent['deathdate'];
+			$eventYears = $birthevent['BirthAge'];
+			$eventDeathYears = $birthevent['DeathAge'];
+		} elseif ($marrIsSelected) {
+			$event = "MARRIAGE";
+			$marrClass = 'marr-highlight';
+			$eventClass = $marrClass;
+			$eventMarrday = $birthevent['marrdate'];
+			$eventYears = $birthevent['MarrYears'] ?? ($marrDateOrig ? (date('Y') - date('Y', strtotime($marrDateOrig))) : '');
+		}
+
+	if (!$currentuser && $birthevent['living'] == "1") {
+		$eventBirthday = "";		
+	}
+	if (!$currentuser && $birthevent['living2'] == "1") {
+		$eventMarrday = "";		
 	}
 
 
@@ -311,7 +325,9 @@ where personID IN {$personList} AND m.defphoto = 1";
         </tr>
 
 <?php 
+
 endforeach; 
+
 ?>
 
 
