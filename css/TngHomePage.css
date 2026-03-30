@@ -10,6 +10,15 @@
   background: #e0fbfc;
 }
 **/
+.info-bar {
+	background-color: lightblue ; 
+	color: black;
+	display: inline-block;
+	padding: 10px;
+	border: 2px solid #333;
+	border-radius: 15px; 
+	padding: 20px;
+}
 
 .welcomeText {
 	//float: left;
@@ -161,7 +170,7 @@
 	margin-top: 10px;
 	padding: 5px; **/
 	width: 100%;
-	font-size: .85em;
+	font-size: .83em;
 	text-align: center;
 	
 }
