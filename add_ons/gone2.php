@@ -122,7 +122,7 @@ where personID = '{$personId}' AND m.defphoto = 1";
 
         <tr>
             <td class="born-article-table" ><a href="<?php echo $tngdomain; ?>getperson.php?personID=<?php echo $birthday['personid'];?>&tree=<?php echo $birthday['gedcom'];?>">
-			<img src="<?php echo $thumbPath; ?>" class='profile-image' style="width: 80px; padding: 5px"; />
+			<img src="<?php echo $thumbPath; ?>" class='profile-image' style="width: 125x; padding: 5px"; />
 			<div>
                 <a href="<?php echo $tngdomain; ?>getperson.php?personID=<?php echo $birthday['personid'];?>&tree=<?php echo $birthday['gedcom'];?>">
                     <?php echo $birthday['firstname'] . " "; ?><?php echo $birthday['lastname']; ?>
