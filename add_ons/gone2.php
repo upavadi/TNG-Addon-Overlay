@@ -14,7 +14,7 @@ $sql = "SELECT
 			deathdatetr,
 			FLOOR(DATEDIFF(CURDATE(), birthdatetr)/365.25) AS BirthAge,
 			FLOOR(DATEDIFF(deathdatetr, birthdatetr)/365.25) AS DeathAge,
-			IFNULL(FLOOR(DATEDIFF(deathdatetr, birthdatetr)/365.25), '') AS DeathYears
+			IFNULL(FLOOR(DATEDIFF(CURDATE(), deathdatetr)/365.25), '') AS DeathYears
 	FROM $people_table
 	
 	WHERE
@@ -42,7 +42,22 @@ $sql = "SELECT
 
 		// If SQL didn't return death age/years, compute them in PHP as a fallback
 		foreach ($rows as &$r) {
-			if ((empty($r['DeathYears']) || $r['DeathYears'] === '') && !empty($r['birthdatetr']) && !empty($r['deathdatetr'])) {
+			if ((empty($r['DeathYears']) || $r['DeathYears'] === '') && !empty($r['deathdatetr'])) {
+				$dy = (int)substr($r['deathdatetr'], 0, 4);
+				$dm = (int)substr($r['deathdatetr'], 5, 2);
+				$dd = (int)substr($r['deathdatetr'], 8, 2);
+				$cy = (int)date('Y');
+				$cm = (int)date('m');
+				$cd = (int)date('d');
+
+				$yearsSinceDeath = $cy - $dy;
+				if ($cm < $dm || ($cm == $dm && $cd < $dd)) {
+					$yearsSinceDeath--;
+				}
+				$r['DeathYears'] = (string)$yearsSinceDeath;
+			}
+
+			if ((empty($r['DeathAge']) || $r['DeathAge'] === '') && !empty($r['birthdatetr']) && !empty($r['deathdatetr'])) {
 				$by = (int)substr($r['birthdatetr'], 0, 4);
 				$bm = (int)substr($r['birthdatetr'], 5, 2);
 				$bd = (int)substr($r['birthdatetr'], 8, 2);
@@ -51,16 +66,11 @@ $sql = "SELECT
 				$dm = (int)substr($r['deathdatetr'], 5, 2);
 				$dd = (int)substr($r['deathdatetr'], 8, 2);
 
-				$age = $dy - $by;
+				$ageAtDeath = $dy - $by;
 				if ($dm < $bm || ($dm == $bm && $dd < $bd)) {
-					$age--;
+					$ageAtDeath--;
 				}
-				$r['DeathYears'] = (string)$age;
-			}
-
-			// populate DeathAge if missing (some templates use DeathAge)
-			if ((empty($r['DeathAge']) || $r['DeathAge'] === '') && !empty($r['DeathYears'])) {
-				$r['DeathAge'] = $r['DeathYears'];
+				$r['DeathAge'] = (string)$ageAtDeath;
 			}
 		}
 		unset($r);
