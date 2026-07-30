@@ -12,7 +12,7 @@ $jsonFilePath = __DIR__ . '/topmenu-json1.json';
 // Initialize variables
 $menuItems = [];
 $success = "";
-
+var_dump($jsonFilePath);
 // Read the JSON file
 if (file_exists($jsonFilePath)) {
     $menuItems = json_decode(file_get_contents($jsonFilePath), true);
@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Update_Paths'])) {
     font-size: 14px;
 }
 </style>::after
-
 <form class="form-group" action="" method="post">
     <div>
         <h3>Edit Menu Items</h3>
