@@ -1,11 +1,19 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 include("tng_begin.php"); 
 
-tng_db_connect($database_host,$database_name,$database_username,$database_password) or exit;	
+tng_db_connect($database_host,$database_name,$database_username,$database_password) or exit; 
 
 $flags['noicons'] = true;
 $flags['noheader'] = false;
+$flags['css'] =
+    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"{$tngdomain}/css/TngHomePage.css\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"{$tngdomain}/css/mytngstyle.css\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"{$tngdomain}/add_ons/custom-menu/topmenu-menu.css\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"{$tngdomain}/css/mytngmobile.css\">\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" href=\"{$tngdomain}/css/tngmobile.css\">\n";
+
 tng_header( $text['mnuheader'], $flags );
 $tng_url = $_SERVER['REQUEST_URI'];
 $tng_login = $tngdomain."login.php";
@@ -68,20 +76,8 @@ $imageAncestor8 = $tngdomain . "/photos/deceased/thumb_Shantagauri_Desai.jpg";
 $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&display=standard&generations=4";
 ?>
 
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngstyle.css' ; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain; ?>/add_ons/custom-menu/topmenu-menu.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/mytngmobile.css' ; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/tngmobile.css' ; ?>">
-
-</head>
-
-
 <!-- "Home Page" (the text for these messages can be found at near the bottom of text.php -->
-<div style="padding: 5px; width: 50%;  margin: 0 auto; text-align: center;";>
+<div style="padding: 5px; width: 50%;  margin: 0 auto; text-align: center;">
 <h2>A more Secure Docker Version 14.05 is Under Construction</h2>
 <h3>It will replace current version. If you spot any errors OR you would like to suggest changes, please let me know, by clicking <a href="suggest.php" style="color: #446d87"><b>Here</b></a>. <br> Thank you!</h3>
 </div>
@@ -93,7 +89,6 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
         Upadhyaya Family & Relatives</div>
         <p class="mobile-top-description">Our Journey Through Time</p>
         </div>
-</div>
 <!-------------------------------------------------->
 <!-- Add this before your first target div -->
 <div class="flex-container">
