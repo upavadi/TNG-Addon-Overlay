@@ -53,7 +53,7 @@
             ]
         },
         {
-            "name": "Search (Find)",
+            "name": "Search people",
             "url": "#",
             "visAll": 1,
             "subitems": [
@@ -155,7 +155,7 @@
             "visLoggedIn": 0
         },
         {
-            "name": "Genealogy",
+            "name": "Explore family",
             "url": "#4",
             "visAll": 1,
             "subitems": [

@@ -1,23 +1,90 @@
 
-/**Welcome text
-.color_col_1 {
-  background: #98c1d9;
-}
-.color_col_2 {
-  background: #3d5a80;
-}
-.color_col_3 {
-  background: #e0fbfc;
-}
+/**for the revised ancestor cards  **/
+.family-chart-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 12px;
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+  }
+
+  #family-chart-title {
+	text-align: center;
+  }
+
+	.family-chart-list > li > a,
+	.family-chart-list .ancestor-card {
+    display: block;
+    padding: 14px;
+    border: 1px solid #9bbbc5;
+    border-radius: 8px;
+    background: #e4f8fa;
+    color: #173f52;
+    text-decoration: none;
+	height: 70px;
+  }
+
+	.family-chart-list .ancestor-card > a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+	}
+
+  .family-chart-list a:hover,
+  .family-chart-list a:focus {
+    background: #d2eef2;
+    text-decoration: underline;
+  }
+
+  .ancestor,
+  .family {
+    display: block; 
+  }
+
+  .ancestor {
+    font-weight: bold;
+  }
+
+  .family {
+    margin-top: 4px;
+    font-size: 0.9em;
+  }
+
+  .ancestor_image {
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 15px;
+	margin-left: 5px;
+	margin-bottom: 15px;
+  }
+
+	.ancestor-details summary {
+		cursor: pointer;
+	}
+
+	.ancestor-details .less-label,
+	.ancestor-details[open] .more-label {
+		display: none;
+	}
+
+	.ancestor-details[open] .less-label {
+		display: inline;
+	}
+/***
 **/
 .info-bar {
 	background-color: lightblue ; 
 	color: black;
 	display: inline-block;
-	padding: 10px;
 	border: 2px solid #333;
 	border-radius: 15px; 
 	padding: 20px;
+	margin-bottom: 20px;
+	margin-left: 16px;
+	
 }
 
 .welcomeText {
@@ -56,7 +123,8 @@
 	border-radius: 10px;
 	padding: 10px;
 	vertical-align: center;
-	margin-top: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	box-shadow: 2px 4px #888888;
 	font-size: 1.2em;
 }
@@ -166,14 +234,44 @@
 	border: 1px solid silver !important;
 	background-color: #e0fbfc;
 	/**margin-left: auto;
-	margin-right: auto;
+	margin-right: auto; **/
 	margin-top: 10px;
-	padding: 5px; **/
-	width: 100%;
-	font-size: .85em; 
+	padding: 5px;
+	font-size: 1.0em; 
 	text-align: center;
 	
 }
+.born-person-list {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 4px;
+}
+
+.born-person-link {
+	display: grid;
+	grid-template-columns: 60px minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.born-person-link .profile-image {
+	width: 60px;
+	height: 60px;
+	padding: 0;
+	object-fit: cover;
+	display: block;
+	flex: 0 0 60px;
+}
+
+.born-person-link span {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
 .born-highlight {
     background-color: #E0E0F7;
 }
@@ -311,7 +409,7 @@
 
 
 /****Media queries ***************/
-@media screen and (max-width: 469px) {
+@media screen and (max-width: 500px) {
 /* For mobile phones: single div full width */
 .Logo-for-mobile{
 	display: flex;
@@ -340,7 +438,10 @@
 }
 .born-article-table {
 	margin-left: 0px;
-	width: 98%;
+}
+table.born-article-table {
+	width: auto;
+	max-width: 98%;
 }
 .equalHMR {
 	width: 95%;
@@ -361,8 +462,9 @@
 	margin-right: 10px;
 
 }
+}
 
-@media (min-width: 470px) and (max-width : 1560px) {
+@media screen and (min-width: 501px) and (max-width: 1560px) {
 .equalHMR {
 	width: 95%;
 		margin-left: auto;
@@ -391,4 +493,5 @@
   background: #e0fbfc;
   padding: 5px;
   border-radius: 10px;
+}
 }

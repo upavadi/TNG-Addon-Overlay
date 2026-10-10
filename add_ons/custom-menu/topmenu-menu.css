@@ -12,36 +12,58 @@ body {
 }
 
 .topHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: flex-end;
+    gap: 10px;
+    width: 100%;
     max-width: 100%;
-    padding: 20px;
+    padding: 10px;
     background-color: #f4f4f4; /* Light gray background */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+    box-sizing: border-box;
+}
+
+.brand-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 12px;
+    min-width: 0;
 }
 
 .topLogo-section {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Aligns content to the right */
+    align-items: flex-end;
+    flex-shrink: 0;
 }
 
-.topLogo {
-    height: 80px; /* Adjust logo size as needed */
+.logo {
+    display: block;
+    height: 50px; /* Adjust logo size as needed */
     width: auto;
-    margin-bottom: 5px;
-    margin-top: -15px;
-    align-items: flex-end; /* Aligns content to the right */
+    vertical-align: bottom;
 }
 
 .search-section {
     display: flex;
     flex-direction: column;
-    align-items: left; /* Aligns content to the right */
-    margin-right: 20px;
-    font-size: 8;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.search-guidance {
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.search-section table {
+    margin: 0 auto;
+    vertical-align: bottom;
 }
 
 .search-section input[type="submit"]:hover {
@@ -50,8 +72,38 @@ body {
 }
 
 .loginLinks {
-    margin-top: 10px;
+    margin-top: 0;
+    margin-bottom: 2px;
     font-size: 14px;
+    text-align: right;
+    white-space: nowrap;
+    justify-self: end;
+}
+
+@media (max-width: 900px) {
+    .topHeader {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        align-items: center;
+    }
+
+    .brand-section {
+        justify-content: center;
+    }
+
+    .brand-section .top-text-content {
+        text-align: center;
+    }
+
+    .search-section {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .loginLinks {
+        justify-self: center;
+        text-align: center;
+    }
 }
 
 .loginLinks a {
@@ -64,7 +116,12 @@ body {
 }
 
 .top-text-content {
-    text-align: right;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 1.2;
+    padding-bottom: 2px;
 }
 
 .topTitle {
@@ -74,7 +131,7 @@ body {
 }
 
 .topDescription {
-    margin: 5px 0 0;
+    margin: 0;
     font-size: 1em;
     color: #0786D0; /* Lighter text color for description */
 }
@@ -199,7 +256,7 @@ body {
     display: block;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 300px) {
     .menu {
         flex-direction: column;
     }
