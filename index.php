@@ -21,14 +21,14 @@ $tng_contact = $tngdomain."suggest.php";
 $tng_register = $tngdomain. "newacctform.php";
 
 /** home page content text ********************************************************* */
-$c1_notloggedin1 = "<strong>Welcome</strong> to the Genealogy Site of the Relatives of Upadhyaya, Travadi and Trivedi family. Here you may explore our eight distinct descendent charts and see how they are connected.";
+$c1_notloggedin1 = "<strong>Welcome.</strong><br />Explore the genealogy of the Upadhyaya, Travadi and Trivedi families. Choose one of the eight family members below. Select <strong>More</strong> to visit that card’s earliest known person.";
 $c2_notloggedin = "You will be able to see some genealogy data but all details of living individuals will be blocked.<br />
-Do login to see all data and photos.<br />If you think you are part of our genealogy project, please do <a href=\"$tng_register\"><strong>Register </strong></a>
+Do login to see all data and photos.<br />If you think you are part of our genealogy project, please do <a href=\"$tng_register\"><strong>Request Access </strong></a>
 or <a href='/contact-us/'><b>Contact Me</b></strong></a> for more details";
 
-$a_welcome = " to the Genealogy Site of the Relatives of Upadhyaya, Travadi and Trivedi family. Here you may explore our eight distinct descendent charts and see how they are connected.
+$a_welcome = " Explore one of the eight family members below. Select More to visit that their earliest known ancestor.
 If you have any additional information, please share by <a href=\"$tng_contact\">Contacting us.</a>";
-$b_general = "We are tracking Descendents of 8 individuals.
+$b_general = "We are tracking Descendants of 8 individuals.
 <ul>
 <li>Click a photo or name to visit that person’s page.</li>
 <li>Click the earliest ancestor’s name to see their descendant chart.</li>
@@ -36,10 +36,10 @@ $b_general = "We are tracking Descendents of 8 individuals.
 </ul>
 ";
 
-$privacy = "<b>Privacy and Data integrity: </b>
+$privacy = "<b>Privacy and Data Protection: </b>
 <br/>To protect your data, we have a closed community. Access to information about living individuals requires approval. All changes are reviewed by administrators.";
 
-$c2_loggedin = "Welcome to our Genealogy Map. Here you may explore our eight distinct descendent charts and see how they are connected.<br />
+$c2_loggedin = "<strong>Welcome</strong>xplore the genealogy of the Upadhyaya, Travadi and Trivedi families..<br />
 If suggest.php'><b>Contact Me</b></strong></a> ";
 
 /*** Define ancestor variables ****/
@@ -77,10 +77,7 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 ?>
 
 <!-- "Home Page" (the text for these messages can be found at near the bottom of text.php -->
-<div style="padding: 5px; width: 50%;  margin: 0 auto; text-align: center;">
-<h2>A more Secure Docker Version 14.05 is Under Construction</h2>
-<h3>It will replace current version. If you spot any errors OR you would like to suggest changes, please let me know, by clicking <a href="suggest.php" style="color: #446d87"><b>Here</b></a>. <br> Thank you!</h3>
-</div>
+<p> </p>
 
 <div class="Logo-for-mobile">
 	<?php $topLogo = $tngdomain . "/img/logo_14.png"; ?>
@@ -88,41 +85,189 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
         <div class="mobile-top-title">
         Upadhyaya Family & Relatives</div>
         <p class="mobile-top-description">Our Journey Through Time</p>
-        </div>
+	    <div class="search-section">
+        
+		<p class="search-guidance">For a complete name search, log in. For women, enter the maiden name as the last name.</p>
+        <form action="search.php" method="get">
+            <table border="0" cellspacing="5" cellpadding="0">
+                <tr>
+                    <td><span class="normal"><?php echo $text['mnufirstname']; ?>:</span><input type="text" name="myfirstname" size="14"></td>
+                    <td><?php echo $text['mnulastname']; ?>:<input type="text" name="mylastname" size="14"></td>
+				</tr>
+				<tr>
+                    <td><input type="hidden" name="mybool" value="AND" /><input type="hidden" name="offset" value="0" /><input type="submit" name="search" value="<?php echo $text['mnusearch']; ?>" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>	
+</div>
+
+
+
+
+
+
+<!------------Welcome 1 - dv1------------------------------------->
+	<div class = "welcomeText_1">
+		<?php	
+		/*** Current user message ***************************************************/
+		if( $currentuser ) {		
+			echo "<p><strong>Welcome ". $currentuserdesc. "</strong>". $a_welcome. "</p>
+			<p>Name search: For women, use the maiden name as the last name.</p>";
+		} else {
+		echo $c1_notloggedin1;
+		echo "<p> You are not logged in. Please <a href=\"$tng_login\"><strong>Log in</strong></a> or <a href=\"$tng_register\"><strong>Request Access </strong></a> for a new account.</p>";
+		}
+		?>			
+	</div>
+
+
+
+
+
+<!-- Ancestors =====================================-->
+<!-- Person 1A =====================================-->
+
+<section class="family-charts">
+  <h2 id="family-charts-title"style="text-align: center; padding-top: 10px; ">Explore our eight family elders</h2>
+  <br />
+  
+
+  <ul class="family-chart-list">
+    <li>
+	<!--person 1---->	
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor1; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor1; ?>" alt="">
+				<span class="ancestor">Jatashanker Juthabhai Upadhyaya</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor1; ?>">Popatbhai Upadhyaya</a></p>
+			</details>
+		</div>
+    </li>
+<!--person 2---->
+    <li>
+    	<div class="ancestor-card">
+			<a href="<?php echo $personAncestor2; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor2; ?>" alt="">
+				<span class="ancestor">Rambhaben Vireshwar Vyas
+				
+			</span>
+			</a>
+			
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor2; ?>">Vireshwar Vyas</a></p>
+			</details>
+		</div>
+    </li>
+    
+	<li>
+    <!--person 3---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor3; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor3; ?>" alt="">
+				<span class="ancestor">Pranshanker Bhawanishanker Joshi
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>is father-in-law of <a href="<?php echo $personAncestor1; ?>">Jatashanker Juthabhai Upadhyaya</a></p>
+			</details>
+		</div>
+    </li>
+	<li>
+    <!--person 4---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor4; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor4; ?>" alt="">
+				<span class="ancestor">Dulerai Tribhovan Pandya
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor4; ?>">Trikamji Pandya</a></p>
+			</details>
+		</div>
+    </li>
+	<li>
+    <!--person 5---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor5; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor5; ?>" alt="">
+				<span class="ancestor">Karsanji Dahyabhai Travadi
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor5; ?>">Vithalji Travadi</a></p>
+			</details>
+		</div>
+    </li>
+	<li>
+    <!--person 6---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor6; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor6; ?>" alt="">
+				<span class="ancestor">Dhankunver Shivshanker Trivedi
+
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor6; ?>">Ajramer Trivedi</a></p>
+			</details>
+		</div>
+    </li>
+	<li>
+    <!--person 7---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor7; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor7; ?>" alt="">
+				<span class="ancestor">Dahyabhai Ranchhodji Desai
+
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor7; ?>">Saurambhai Dayalji Desai</a></p>
+			</details>
+		</div>
+    </li>
+	<li>
+    <!--person 8 ---->	 
+		<div class="ancestor-card">
+			<a href="<?php echo $personAncestor7; ?>">
+				<img class="ancestor_image" src="<?php echo $imageAncestor8; ?>" alt="">
+				<span class="ancestor">Shantagauri Bhikhabhai Naik
+
+				</span>
+			</a>
+			<details class="ancestor-details">
+				<summary><span class="more-label">More</span><span class="less-label">Less</span></summary>
+				<p>Earliest known Ancestor is <a href="<?php echo $ancestorAncestor8; ?>">Lallubhai Naik</a></p>
+			</details>
+		</div>
+    </li>
+
+  </ul>
+</section>
 <!-------------------------------------------------->
 <!-- Add this before your first target div -->
 <div class="flex-container">
 	
-
-
-	<!------------Welcome 1 - dv1------------------------------------->
-	<div class = "welcomeText_1 dv1">
-		<?php	
-		/*** Current user message ***************************************************/
-		if( $currentuser ) {		
-			echo "<p><strong>Welcome ". $currentuserdesc. "</strong>". $a_welcome. "</p>";
-		} else {
-		echo $c1_notloggedin1;
-		echo "<p> You are not logged In. Please <a href=\"$tng_login\">Log In</a> or <a href=\"$tng_register\"><strong>Register </strong></a> for a new account. </p> ";
-		}
-		?>			
-	</div
-
-	<!------------Tracking descendents - dv6 -------------------------------------->
-	<div class = "welcomeText_1 dv6">
-		<p><?php echo $b_general; ?></p>
-		<p><?php echo $privacy; ?> </p>
-	</div>
 	
 	<!------------On This Day - dv2 -------------------------------------->
-	<div class = "welcomeText_gone dv2">
+	<div class = "welcomeText_gone">
 		<div class="gone_header">On This Day</div>
 		<div><a href="add_ons/y_today_3.php">  More....</a></div>
 		<?php include("add_ons/gone2.php"); ?>		
 	</div>
 
 	<!--------------add useful links dv2 ---------------------------------------->
-	<div class="welcomeText_1 dv3">
+	<div class="welcomeText_1">
 		<p><span class="header">Useful Links</span></p>
 		<ul>
 		<?php 
@@ -135,7 +280,7 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 		else {
 			//this means you're logged out
 			echo "<li><a href=\"login.php\">{$text['mnulogon']}</a></li>\n";
-			echo "<li><a href=\"newacctform.php\">Register</a></li>\n";
+			echo "<li><a href=\"newacctform.php\">Request Access</a></li>\n";
 		}
 		echo "<li><a href=\"add_ons/y_today_3.php\">Yesterday - Today - Tomorrow</a></li>\n"; 
 		echo "<li><a href=\"anniversaries.php\">Anniversaries</a></li>\n";
@@ -148,135 +293,28 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 	</div>
 	
 	<!-- --- Random Photo - dv5 ------------------------------------------ -->
-	<div class="welcomeText_1 random-photo dv4" >		
+	<div class="welcomeText_1 random-photo" >		
 		<div>
 		<?php include("randomphoto.php"); ?>
 		</div>
 	</div>
 
 	<!-- -------------Top Surnames dv6------------------------------------------------->
-	<div class="top_surnames dv5">
+	<div class="top_surnames">
 		<span class="header">Top Surnames</span>
 		<?php 
 		include_once($rootpath."/add_ons/surnames-top10.php");
 		?>
+		<a href="surnames-all.php"><?php echo "Search All Surnames" ?></a>
 	</div>
-
-<!-- ------------Ancestors-------------------------------------------------->
-	
-	<!-- -----------------Ancestors1--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq dv7">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor1 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor1 ?>" alt="Jatashanker Juthabhai Upadhyaya"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-		<a style="color: #d77600;" href="<?php echo $personAncestor1 ?>"><h5>Jatashanker Juthabhai Upadhyaya</h5></a> is
-		<a href="<?php echo $ancestorAncestor1 ?>"><h5>Popatbhai Upadhyaya</h5></a>
-		</p>
-		</div>
-	</div>
-	<!-- -----------------Ancestors2--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq eq-female dv8 ">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor2 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor2 ?>" alt="Rambhaben Vireshwar Vyas"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor2 ?>"><h5>Rambhaben Vireshwar Vyas</h5></a> is
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor2 ?>"><h5>Vireshvar Vyas</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors3--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq dv14">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor3 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor3 ?>" alt="Pranshanker B Joshi"></a>
-		</p>
-		<p>			 
-		<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor3 ?>"><h5>Pranshanker Bhawanishanker Joshi</h5></a><br />
-		<br /> is father-in-law of 
-		<a style="color: #d77600;" href="<?php echo $personAncestor1 ?>"><h5>Jatashanker Juthabhai Upadhyaya</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors4-------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq dv13">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor4 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor4 ?>" alt="Dulerai Tribhovan Pandya"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor4 ?>"><h5>Dulerai Tribhovan Pandya</h5></a> is 
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor4 ?>"><h5>Trikamji Pandya</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors5--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq dv9">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor5 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor5 ?>" alt="Karsanji Dahyabhai Travadi"></a>
-		</p>
-		<p>Earliest known Ancestor (12th generation) of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor5 ?>"><h5>Karsanji Dahyabhai Travadi</h5></a> is 
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor5 ?>"><h5>Vithalji Travadi</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors6--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq eq-female dv10">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor6 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor6 ?>" alt="Dhankunver Shivshanker Travadi"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor6 ?>"><h5>Dhankunver Shivshanker Trivedi</h5></a> is 
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor6 ?>"><h5>Ajramer Trivedi</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors7--------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq dv11">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor7 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor7 ?>" alt="Dahyabhai Ranchhodji Desai"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor7 ?>"><h5>Dahyabhai Ranchhodji Desai</h5></a> is
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor7 ?>"><h5>Saurambhai Dayalji Desai</h5></a>
-		</p>
-		</div>
-	</div>
-
-	<!-- -----------------Ancestors8-------------------------------------------->
-	<div class="welcomeText_1 equalHMR eq eq-female dv12">
-		<div>
-		<p>
-		<a href="<?php echo $personAncestor8 ?>">
-		<img class="surname_image" src="<?php echo $imageAncestor8 ?>" alt="Shantagauri Bhikhabhai Naik"></a>
-		</p>
-		<p>Earliest known Ancestor of <br />
-				<a style="color: #d77600;" href="<?php echo $personAncestor8 ?>"><h5>Shantagauri Bhikhabhai Naik</h5></a> is 
-				<a style="text-decoration: underline;" href="<?php echo $ancestorAncestor8 ?>"><h5>Lallubhai Naik</h5></a>
-		</p>
-		</div>
-	</div>
-</div><!--end ancestors -->
 </div>
+
+	<!------------Privacy-------------------------------------->
+	<div class = "welcomeText_1" style="margin-bottom:">
+		<p><?php echo ""; //$b_general; ?></p>
+		<p><?php echo $privacy; ?> </p>
+	</div>
+
 
 
 <?php
