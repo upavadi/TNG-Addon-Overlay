@@ -112,8 +112,8 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 		<?php	
 		/*** Current user message ***************************************************/
 		if( $currentuser ) {		
-			echo "<p><strong>Welcome ". $currentuserdesc. "</strong>". $a_welcome. "</p>
-			<p>Name search: For women, use the maiden name as the last name.</p>";
+			echo "<p><strong>Welcome ". $currentuserdesc. "</strong>". $a_welcome. "</p>"
+			;
 		} else {
 		echo $c1_notloggedin1;
 		echo "<p> You are not logged in. Please <a href=\"$tng_login\"><strong>Log in</strong></a> or <a href=\"$tng_register\"><strong>Request Access </strong></a> for a new account.</p>";
