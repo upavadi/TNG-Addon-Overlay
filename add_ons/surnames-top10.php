@@ -33,7 +33,7 @@ $search_url = getURL( "search", 1 );
 
 	$wherestr = "WHERE lastname != \"\" and lastname != \"[--?--]\""; //this suppresses "[no surname]" and [--?--] from the list - Roger 20 Nov 2004
 	
-$topnum = 14;
+$topnum = 6;
 $query = "SELECT lastname, binary(lastname) as binlast, count(lastname ) as lncount FROM $people_table $wherestr GROUP BY binlast ORDER by lncount DESC, binlast LIMIT $topnum";
 
 //$result = mysql_query($query) or die ("$text[cannotexecutequery]: $query");
@@ -57,5 +57,6 @@ mysqli_free_result($result); //change mysqli by Mahesh
 <a href="surnames-all.php"><?php echo "$text[showallsurnames]" ?></a>
 </td>
 </tr>
+
 </table>
 

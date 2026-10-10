@@ -78,16 +78,19 @@ $sql = "SELECT
 <span style="font-size:12pt; color: blue;"><br /> There are no events for yesterday, today or tomorrow.</span>
 <?php
 } else {
-?>	
+?>	<div style="overflow-x:auto;">
 <table class="born-article-table" >
     <tbody>
 	<th class="born-article-table " style="background-color: #EDEDED; text-align: center;">Name</th>
-    <th  class="born-article-table" style="background-color: #EDEDED;text-align: center;">Birth Date</th>
-    <th  class="born-article-table" style="background-color: #EDEDED; text-align: center;">Death Date</th>
-	<th  class="born-article-table" style="background-color: #EDEDED;text-align: center;">Age<br />at Death</th>
-	<th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Years<br />since Birth</th>
-	<th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Years<br />since Death</th>
+    <th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Event</th>
+	<th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Years ago</th>
+	<th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Age at Death</th>
 <?php	
+$eventDates = array(
+	date('m-d', strtotime('-1 day')),
+	date('m-d'),
+	date('m-d', strtotime('+1 day'))
+);
 foreach ($rows as $birthday): 
         $personId = $birthday['personid'];
 		
@@ -127,6 +130,19 @@ where personID = '{$personId}' AND m.defphoto = 1";
 		} else {
 			$deathClass = "";
 	}
+	$deathEvent = !empty($birthday['deathdatetr'])
+		&& in_array(date('m-d', strtotime($birthday['deathdatetr'])), $eventDates, true);
+	if ($deathEvent) {
+		$event = 'DEATH ' . $birthday['deathdate'];
+		$eventClass = $deathClass;
+		$eventYears = $birthday['DeathYears'];
+		$eventDeathAge = $birthday['DeathAge'];
+	} else {
+		$event = 'BIRTH ' . $birthday['birthdate'];
+		$eventClass = $bornClass;
+		$eventYears = $birthday['BirthAge'];
+		$eventDeathAge = $birthday['DeathAge'];
+	}
 
 	?>
 
@@ -138,17 +154,15 @@ where personID = '{$personId}' AND m.defphoto = 1";
                     <?php echo $birthday['firstname'] . " "; ?><?php echo $birthday['lastname']; ?>
                 </a></div>
             </td>
-            <td class="born-article-table <?php echo $bornClass; ?>" style="text-align: center;"><?php echo $birthday['birthdate']; ?></td>
-			<td class="born-article-table <?php echo $deathClass; ?>" style="text-align: center;"><?php echo $birthday['deathdate']; ?></td>
-            <td class="born-article-table" style="text-align: center;"><?php echo $birthday['DeathAge']; ?></td>
-			<td class="born-article-table" style="text-align: center;"><?php echo $birthday['BirthAge']; ?></td>
-			<td class="born-article-table" style="text-align: center;"><?php echo $birthday['DeathYears']; ?></td>
+            <td class="born-article-table <?php echo $eventClass; ?>" style="text-align: center;"><?php echo $event; ?></td>
+			<td class="born-article-table" style="text-align: center;"><?php echo $eventYears; ?></td>
+            <td class="born-article-table" style="text-align: center;"><?php echo $eventDeathAge; ?></td>
         </tr>
 
 
     <?php endforeach; 
 
 ?>
-</table>
+</table></div>
 <?php
 }

@@ -7,16 +7,26 @@ include ( "../config.php" );
 if( !$cms['support'] )
 	$cms['tngpath'] = "../";
 
-$title = "Yesterday-Today-Tomorrow";
+$title = "Family events around today";
 
 $logstring = "<a href=\"$path\">". $title. "</a>";
 writelog($logstring);
 preparebookmark($logstring);
 
 $flags['noicons'] = true;
-tng_header( "Yesterday-Today-Tomorrow", $flags ); 
+tng_header( "Family events around today", $flags ); 
 
 $db = mysqli_connect($database_host, $database_username, $database_password, $database_name); 
+
+$less10days = date('d-M-Y', strtotime('-10 days'));
+$add10days = date('d-M-Y', strtotime('+10 days'));
+$anniversaryDates = array();
+$rangeStart = strtotime('-10 days');
+$rangeEnd = strtotime('+10 days');
+for ($eventDate = $rangeStart; $eventDate <= $rangeEnd; $eventDate = strtotime('+1 day', $eventDate)) {
+	$anniversaryDates[] = date('m-d', $eventDate);
+}
+$anniversaryDateList = "'" . implode("','", $anniversaryDates) . "'";
 
 /*****************Birth and Death ******************************************* */
 $sql = "SELECT
@@ -37,19 +47,10 @@ $sql = "SELECT
 	FROM $people_table
 	
 	WHERE
-	   ( DATE_FORMAT(birthdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
-			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
-			)
-)
+	   ( DATE_FORMAT(birthdatetr, '%m-%d') IN ($anniversaryDateList)
 	OR
-	( DATE_FORMAT(deathdatetr, '%m-%d') IN (
-			DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 DAY), '%m-%d'), 
-			DATE_FORMAT(CURDATE(), '%m-%d'), 
-			DATE_FORMAT(DATE_ADD(CURDATE(), INTERVAL 1 DAY), '%m-%d')
-			)
-) 
+	DATE_FORMAT(deathdatetr, '%m-%d') IN ($anniversaryDateList)
+	)
 	";
 	$result = $db->query($sql);
 	    $rows = array();
@@ -63,6 +64,7 @@ $sql3 = "SELECT
 h.personid AS personid1,
        h.firstname AS firstname1,
        h.lastname AS lastname1,
+	   h.gedcom AS gedcom1,
 	   h.living as living1,
 	   h.sex as sex1,
 		h.birthdate as birthdat1,
@@ -72,6 +74,7 @@ h.personid AS personid1,
        w.personid AS personid2,
        w.firstname AS firstname2,
        w.lastname AS lastname2,
+	   w.gedcom AS gedcom2,
 	   h.birthdate as birthdate2,
 	   w.living as living2,
 	   w.sex as sex2,
@@ -87,12 +90,7 @@ FROM   {$families_table} as f
               ON f.husband = h.personid
        LEFT JOIN {$people_table} AS w
               ON f.wife = w.personid
-# WHERE  Month(f.marrdatetr) = MONTH(ADDDATE(now(), INTERVAL 3 month))
-  WHERE  DATE(CONCAT(YEAR(CURDATE()), RIGHT(f.marrdatetr, 6)))
-          BETWEEN 
-              DATE_SUB(CURDATE(), INTERVAL 10 DAY)
-          AND
-              DATE_ADD(CURDATE(), INTERVAL 10 DAY)     
+  WHERE DATE_FORMAT(f.marrdatetr, '%m-%d') IN ($anniversaryDateList)
 ORDER  BY Day(f.marrdatetr)
 ";
 $result3 = $db3->query($sql3);
@@ -103,34 +101,30 @@ $result3 = $db3->query($sql3);
 
 /******************************************************************************************** */
 $NewArray = array_merge($rows, $rows3); // combined Array to include marr anni
-//var_dump($NewArray);
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo $tngdomain. '/css/TngHomePage.css' ; ?>">
 
 <p>
 <div class="article-text">
-	<h1 class="article-title">yesterday TODAY tomorrow</h1>
+	<h1 class="article-title">Family events around today</h1>
 </p>
 <div class="info-bar">
-<b>Under construction<br><i>
-To help us evaluate this software I have increased the date range to 10 days before & 10 Days after, Today.</i></b>
-</div>
-<p>Birth, Death and Marriage events for Yesterday, Today and Tomorrow.<br><b>
+<p>Births, marriages and deaths from <?php echo $less10days; ?> to <?php echo $add10days; ?> <br><b>
+
 <?php 
 if (!$currentuser) 		
 
-echo "<a class='btn-detail' href='../login.php'>Log In </a>required to view all data.";
+echo "Living-person details are private. <a class='btn-detail' href='../login.php'>Log In </a>to view all available information.";
 ?>
 </p>
+</div>
 <table class="born-article-table" >
     
-    <th class="born-article-table " style="width: 100px; background-color: #EDEDED; text-align: center;"></th>    
+    <th class="born-article-table " style="width: 240px; background-color: #EDEDED; text-align: center;">Person / couple</th>    
 	<th class="born-article-table " style="background-color: #EDEDED; text-align: center;">Event</th>
-    <th  class="born-article-table" style="background-color: #EDEDED;text-align: center;">Birth Date</th>
-	<th  class="born-article-table" style="background-color: #EDEDED;text-align: center;">Marr Date</th>
-    <th  class="born-article-table" style="background-color: #EDEDED; text-align: center;">Years</th>
-	<th  class="born-article-table" style="background-color: #EDEDED;text-align: center;">Death Date</th>
+    <th  class="born-article-table" style="background-color: #EDEDED; text-align: center;">Years ago</th>
 	<th class="born-article-table" style="background-color: #EDEDED; text-align: center;">Age at Death</th>
 	
     
@@ -151,6 +145,7 @@ foreach ($NewArray as $event):
 			$maskName = true;
 		}
 		$personIndex[$personId] = array(
+			'gedcom' => $event["gedcom{$suffix}"],
 			'sex' => $event["sex{$suffix}"],
 			'living' => $living,
 			'firstname' => $maskName ? "Living" : $event["firstname{$suffix}"],
@@ -227,26 +222,17 @@ where personID IN {$personList} AND m.defphoto = 1";
 			$birthevent['DeathAge'] = "";
 		}
 
-		$yesterdayMd = date('m-d', strtotime('-1 day'));
-		$todayMd = date('m-d');
-		$tomorrowMd = date('m-d', strtotime('+1 day'));
-		$birthMd = substr($birthevent['birthdatetr'], -5);
-		$deathMd = substr($birthevent['deathdatetr'], -5);
+		$birthMd = $birthevent['birthdatetr'] ? substr($birthevent['birthdatetr'], -5) : '';
+		$deathMd = $birthevent['deathdatetr'] ? substr($birthevent['deathdatetr'], -5) : '';
 		$marrDateOrig = $birthevent['marrdatetr'];
-		$marrDate = $marrDateOrig ? date('Y') . '-' . substr($marrDateOrig, 5) : '';
-		$marrTimestamp = $marrDate ? strtotime($marrDate) : false;
-		$marrStart = strtotime('-10 days');
-		$marrEnd = strtotime('+10 days');
+		$marrMd = $marrDateOrig ? substr($marrDateOrig, -5) : '';
 
-		$birthIsSelected = $birthMd && in_array($birthMd, [$yesterdayMd, $todayMd, $tomorrowMd]);
-		$deathIsSelected = $deathMd && in_array($deathMd, [$yesterdayMd, $todayMd, $tomorrowMd]);
-		$marrIsSelected = $marrTimestamp !== false && $marrTimestamp >= $marrStart && $marrTimestamp <= $marrEnd;
+		$birthIsSelected = in_array($birthMd, $anniversaryDates, true);
+		$deathIsSelected = in_array($deathMd, $anniversaryDates, true);
+		$marrIsSelected = in_array($marrMd, $anniversaryDates, true);
 
 		$event = "";
 		$eventClass = "";
-		$bornClass = "";
-		$deathClass = "";
-		$marrClass = "";
 		$eventBirthday = "";
 		$eventDeathday = "";
 		$eventMarrday = "";
@@ -255,24 +241,21 @@ where personID IN {$personList} AND m.defphoto = 1";
 
 		if ($birthIsSelected) {
 			$event = "BIRTH";
-			$bornClass = 'born-highlight';
-			$eventClass = $bornClass;
+			$eventClass = 'born-highlight';
 			$eventBirthday = $birthevent['birthdate'];
 			$eventDeathday = $birthevent['deathdate'];
 			$eventYears = $birthevent['BirthAge'];
 			$eventDeathYears = $birthevent['DeathAge'];
 		} elseif ($deathIsSelected) {
 			$event = "DEATH";
-			$deathClass = 'death-highlight';
-			$eventClass = $deathClass;
+			$eventClass = 'death-highlight';
 			$eventBirthday = $birthevent['birthdate'];
 			$eventDeathday = $birthevent['deathdate'];
 			$eventYears = $birthevent['BirthAge'];
 			$eventDeathYears = $birthevent['DeathAge'];
 		} elseif ($marrIsSelected) {
 			$event = "MARRIAGE";
-			$marrClass = 'marr-highlight';
-			$eventClass = $marrClass;
+			$eventClass = 'marr-highlight';
 			$eventMarrday = $birthevent['marrdate'];
 			$eventYears = $birthevent['MarrYears'] ?? ($marrDateOrig ? (date('Y') - date('Y', strtotime($marrDateOrig))) : '');
 		}
@@ -283,39 +266,39 @@ where personID IN {$personList} AND m.defphoto = 1";
 	if (!$currentuser && $birthevent['living2'] == "1") {
 		$eventMarrday = "";		
 	}
+	if ($birthIsSelected && $eventBirthday) {
+		$event .= " " . $eventBirthday;
+	} elseif ($deathIsSelected && $eventDeathday) {
+		$event .= " " . $eventDeathday;
+	}
+	if ($marrIsSelected) {
+		$event = $eventMarrday ? "Married " . $eventMarrday : "MARRIAGE";
+	}
 
 
 ?>
 
 
         <tr>
-            <td class="born-article-table" ><a href="<?php echo $tngdomain; ?>getperson.php?personID=<?php echo $birthevent['personid'];?>&tree=?>">
+            <td class="born-article-table">
+				<div class="born-person-list">
 				<?php
 				foreach($personIds as $personId):
 					$person = $personIndex[$personId]; 
+					$personUrl = $tngdomain . 'getperson.php?personID=' . rawurlencode($personId) . '&tree=' . rawurlencode($person['gedcom']);
 				?>
-				<img src="<?php echo $person['thumbPath']; ?>" class='profile-image' style="width: 80px; padding: 5px"; />
-				<div>
-					<a href="<?php echo "../" ?>getperson.php?personID=<?php echo $personId;?>&tree=?>">
-					<?php echo $person['firstname'] . " "; ?><?php echo $person['lastname']; ?>
+					<a class="born-person-link" href="<?php echo htmlspecialchars($personUrl, ENT_QUOTES, 'UTF-8'); ?>">
+						<img src="<?php echo htmlspecialchars($person['thumbPath'], ENT_QUOTES, 'UTF-8'); ?>" class="profile-image" alt="" />
+						<span><?php echo htmlspecialchars(trim($person['firstname'] . " " . $person['lastname']), ENT_QUOTES, 'UTF-8'); ?></span>
 				</a>
-				</div>
 			<?php endforeach; ?>
+				</div>
 			</td>
         <!--event -->    
 			<td class="born-article-table <?php echo $eventClass; ?>" ><?php echo $event; ?>
 			</td>
-        <!--Birth date--->
-			<td class="born-article-table <?php echo $bornClass; ?>" style="text-align: center;"><?php echo $eventBirthday; ?>
-	   		</td>
-		<!--Marr date--->
-			<td class="born-article-table <?php echo $marrClass; ?>" style="text-align: center;"><?php echo $eventMarrday; ?>
-	   		</td>
 		<!---- Years ------->	
 		<td class="born-article-table " style="text-align: center;"><?php echo $eventYears; ?>
-		</td>
-		<!---Death Date -------->
-        <td class="born-article-table <?php echo $deathClass; ?>" style="text-align: center;"><?php echo $eventDeathday; ?>
 		</td>
 		<!---Age at Death  -------->
 		<td class="born-article-table" style="text-align: center;"><?php echo $eventDeathYears; ?>
@@ -333,8 +316,9 @@ endforeach;
 
 </table>
 
-<div
+<div>
 <p class="center"><a class="btn-detail" href="../index.php">Back to Home Page</a></p>
+</div>
 
 
 <?php
