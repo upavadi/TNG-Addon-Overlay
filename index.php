@@ -129,7 +129,7 @@ $ancestorAncestor8 = $tngdomain . "/descend.php?personID=I1366&tree=upavadi_1&di
 <!-- Person 1A =====================================-->
 
 <section class="family-charts">
-  <h2 id="family-charts-title"style="text-align: center; padding-top: 10px; ">Explore our eight family elders</h2>
+  <h2 id="family-charts-title"style="text-align: center; padding-top: 10px; ">Explore our elders</h2>
   <br />
   
 

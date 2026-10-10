@@ -22,14 +22,14 @@
                     "visLoggedIn": 0
                 },
                 {
-                    "name": "Logout",
+                    "name": "Log out",
                     "url": "\/logout.php",
                     "visAll": 0,
                     "visAdmin": 0,
                     "visLoggedIn": 1
                 },
                 {
-                    "name": "log In",
+                    "name": "Log in",
                     "url": "\/login.php",
                     "visAll": 1,
                     "visAdmin": 0,
@@ -144,11 +144,11 @@
                     "visLoggedIn": 0
                 },
                 {
-                    "name": "All Media ?",
+                    "name": "All Media",
                     "url": "\/browsemedia.php",
-                    "visAll": 1,
+                    "visAll": 0,
                     "visAdmin": 0,
-                    "visLoggedIn": 0
+                    "visLoggedIn": 1
                 }
             ],
             "visAdmin": 0,
