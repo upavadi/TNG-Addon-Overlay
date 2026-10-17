@@ -47,10 +47,21 @@ $sql = "SELECT
 	FROM $people_table
 	
 	WHERE
-	   ( DATE_FORMAT(birthdatetr, '%m-%d') IN ($anniversaryDateList)
-	OR
-	DATE_FORMAT(deathdatetr, '%m-%d') IN ($anniversaryDateList)
-	)
+    (
+        DATE_FORMAT(birthdatetr, '%m-%d') IN ($anniversaryDateList)
+        OR DATE_FORMAT(deathdatetr, '%m-%d') IN ($anniversaryDateList)
+    )
+ORDER BY FIELD(
+    DATE_FORMAT(
+        CASE
+            WHEN DATE_FORMAT(birthdatetr, '%m-%d') IN ($anniversaryDateList)
+                THEN birthdatetr
+            ELSE deathdatetr
+        END,
+        '%m-%d'
+    ),
+    $anniversaryDateList
+)
 	";
 	$result = $db->query($sql);
 	    $rows = array();
@@ -289,9 +300,10 @@ where personID IN {$personList} AND m.defphoto = 1";
 				?>
 					<a class="born-person-link" href="<?php echo htmlspecialchars($personUrl, ENT_QUOTES, 'UTF-8'); ?>">
 						<img src="<?php echo htmlspecialchars($person['thumbPath'], ENT_QUOTES, 'UTF-8'); ?>" class="profile-image" alt="" />
-						<span><?php echo htmlspecialchars(trim($person['firstname'] . " " . $person['lastname']), ENT_QUOTES, 'UTF-8'); ?></span>
+						<span><?php echo htmlspecialchars(trim($person['firstname'] . " " . $person['lastname']), ENT_QUOTES, 'UTF-8'); ?><?php if (!empty($birthevent['deathdate'])) echo " (" . htmlspecialchars('Died '.$birthevent['deathdate'], ENT_QUOTES, 'UTF-8') . ")"; ?></span>
 				</a>
-			<?php endforeach; ?>
+			<?php 
+		endforeach; ?>
 				</div>
 			</td>
         <!--event -->    
